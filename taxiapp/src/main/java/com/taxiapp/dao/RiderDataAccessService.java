@@ -15,8 +15,27 @@ public class RiderDataAccessService implements RiderDao{
 
     @Override
     public int insertRider(UUID id, Rider rider) {
-        DB.add(new Rider(id, rider.getFirstName(), rider.getLastName()));
+        DB.add(new Rider(id,    rider.getFirstName(), 
+                                rider.getLastName())
+        );
+        
         return 1;
+    }
+
+    @Override
+    public List<Rider> selectAllRiders() {
+        
+        return DB;
+    }
+
+    @Override
+    public Rider getRiderById(UUID id) {
+        for (Rider rider : DB) {
+            if (rider.getId().equals(id)) {
+                return rider;
+            }
+        }
+        return null;
     }
     
 }

@@ -1,5 +1,6 @@
 package com.taxiapp.dao;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.taxiapp.entity.Rider;
@@ -12,5 +13,9 @@ public interface RiderDao {
         UUID id = UUID.randomUUID();
         return insertRider(id, rider);
     }
+
+    List<Rider> selectAllRiders();
+
+    Rider getRiderById(UUID id);
     
 }

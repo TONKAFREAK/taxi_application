@@ -14,6 +14,7 @@ public class Rider {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        
     }
 
     public UUID getId() {

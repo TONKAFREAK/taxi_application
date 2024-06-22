@@ -11,38 +11,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.taxiapp.entity.Rider;
-import com.taxiapp.service.RiderService;
+import com.taxiapp.entity.Driver;
+import com.taxiapp.service.DriverService;
 
-@RequestMapping("api/v1/rider")
+@RequestMapping("api/v1/driver")
 @RestController
-public class RiderController {
+public class DriverController {
 
-    private final RiderService riderService;
+    private final DriverService driverService;
 
     @Autowired
-    public RiderController(RiderService riderService) {
-        this.riderService = riderService;
+    public DriverController(DriverService driverService){
+
+        this.driverService = driverService;
+
     }
 
     @PostMapping
-    public void addRider(@RequestBody Rider rider) {
-        riderService.addRider(rider);
+    public void addDriver(@RequestBody Driver driver){
+
+        driverService.addDriver(driver);
+
     }
 
     @GetMapping("/list")
-    public List<Rider> getAllRiders() {
-        return riderService.getAllRiders();
+    public List<Driver> getAllDrivers(){
+
+        return driverService.getAllDrivers();
     }
 
     @GetMapping("/count")
-    public int getRidersCount() {
-        return riderService.getAllRiders().size();
+    public int getDriversCount(){
+        return driverService.getAllDrivers().size();
     }
 
     @GetMapping("/{id}")
-    public Rider getRiderById(@PathVariable UUID id) {
-        return riderService.getRiderById(id);
+    public Driver getDriverById(@PathVariable UUID id){
+        return driverService.getDriverById(id);
     }
+
+
     
 }
