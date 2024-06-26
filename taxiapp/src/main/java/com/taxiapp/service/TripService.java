@@ -1,5 +1,6 @@
 package com.taxiapp.service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class TripService {
         return tripDao.insertTrip(trip);
     }
 
-    public Trip getTripById(UUID id) {
+    public Optional<Trip> getTripById(UUID id) {
         return tripDao.getTripById(id);
     }
     

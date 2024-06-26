@@ -31,7 +31,7 @@ public class TripController {
 
     @GetMapping("/{id}")
     public Trip getTripById(@PathVariable UUID id) {
-        return tripService.getTripById(id);
+        return tripService.getTripById(id).orElse(null);
     }
     
     

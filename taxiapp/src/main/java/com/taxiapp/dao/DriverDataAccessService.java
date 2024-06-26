@@ -2,6 +2,7 @@ package com.taxiapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
@@ -34,13 +35,8 @@ public class DriverDataAccessService implements DriverDao {
     }
 
     @Override
-    public Driver getDriverById(UUID id) {
-        for (Driver driver : DB) {
-            if (driver.getId().equals(id)) {
-                return driver;
-            }
-        }
-        return null;
+    public Optional<Driver> getDriverById(UUID id) {
+        return DB.stream().filter( driver -> driver.getId().equals(id)).findFirst();
     }
     
 }

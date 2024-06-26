@@ -1,6 +1,7 @@
 package com.taxiapp.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class DriverService {
         return driverDao.selecrtAllDrivers();
     }
     
-    public Driver getDriverById(UUID id){
+    public Optional<Driver> getDriverById(UUID id){
         return driverDao.getDriverById(id);
 
     }

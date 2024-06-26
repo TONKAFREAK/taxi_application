@@ -1,6 +1,7 @@
 package com.taxiapp.dao;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.taxiapp.entity.Rider;
@@ -16,6 +17,6 @@ public interface RiderDao {
 
     List<Rider> selectAllRiders();
 
-    Rider getRiderById(UUID id);
+    Optional<Rider> getRiderById(UUID id);
     
 }

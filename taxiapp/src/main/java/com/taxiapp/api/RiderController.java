@@ -42,7 +42,7 @@ public class RiderController {
 
     @GetMapping("/{id}")
     public Rider getRiderById(@PathVariable UUID id) {
-        return riderService.getRiderById(id);
+        return riderService.getRiderById(id).orElse(null);
     }
     
 }

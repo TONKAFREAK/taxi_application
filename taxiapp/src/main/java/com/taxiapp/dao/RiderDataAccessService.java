@@ -2,6 +2,7 @@ package com.taxiapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
@@ -29,13 +30,8 @@ public class RiderDataAccessService implements RiderDao{
     }
 
     @Override
-    public Rider getRiderById(UUID id) {
-        for (Rider rider : DB) {
-            if (rider.getId().equals(id)) {
-                return rider;
-            }
-        }
-        return null;
+    public Optional<Rider> getRiderById(UUID id) {
+       return DB.stream().filter( rider -> rider.getId().equals(id)).findFirst();
     }
     
 }

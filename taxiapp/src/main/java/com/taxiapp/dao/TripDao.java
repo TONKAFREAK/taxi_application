@@ -1,5 +1,6 @@
 package com.taxiapp.dao;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import com.taxiapp.entity.Trip;
@@ -13,5 +14,5 @@ public interface TripDao {
         return insertTrip(id, trip);
     }
 
-    Trip getTripById(UUID id);
+    Optional<Trip> getTripById(UUID id);
 }

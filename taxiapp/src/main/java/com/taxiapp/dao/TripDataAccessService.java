@@ -2,6 +2,7 @@ package com.taxiapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
@@ -20,14 +21,9 @@ public class TripDataAccessService implements TripDao {
     }
 
     @Override
-    public Trip getTripById(UUID id) {
+    public Optional<Trip> getTripById(UUID id) {
 
-        for (Trip trip : DB) {
-            if (trip.getId().equals(id)) {
-                return trip;
-            }
-        }
-        return null;
+        return DB.stream().filter( trip -> trip.getId().equals(id)).findFirst();
         
     }
 

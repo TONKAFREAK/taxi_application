@@ -1,6 +1,7 @@
 package com.taxiapp.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class RiderService {
         return riderDao.selectAllRiders();
     }
 
-    public Rider getRiderById(UUID id) {
+    public Optional<Rider> getRiderById(UUID id) {
         return riderDao.getRiderById(id);
     }
     

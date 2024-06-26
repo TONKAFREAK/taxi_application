@@ -1,6 +1,7 @@
 package com.taxiapp.dao;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.taxiapp.entity.Driver;
@@ -16,6 +17,6 @@ public interface DriverDao {
     
     List<Driver> selecrtAllDrivers();
 
-    Driver getDriverById(UUID id);
+    Optional<Driver> getDriverById(UUID id);
 
 }
