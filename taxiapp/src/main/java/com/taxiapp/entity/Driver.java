@@ -4,16 +4,25 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Driver {
 
     private final UUID id;
+    @NotBlank(message = "Driver\'s first name cannot be blank")
     private final String firstName;
+    @NotBlank(message = "Driver\'s last name cannot be blank")
     private final String lastName;
 
+    @NotBlank(message = "Car model cannot be blank")
     private final String carModel;
+    @NotBlank(message = "Car make cannot be blank")
     private final String carMake;
+    @NotBlank(message = "Car color cannot be blank")
     private final String carColor;
+    @NotBlank(message = "Car plate cannot be blank")    
     private final String carPlate;
+    @NotBlank(message = "Car year cannot be blank")
     private final int carYear;
 
     public Driver(@JsonProperty("id") UUID id,

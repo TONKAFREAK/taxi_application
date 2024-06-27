@@ -10,10 +10,10 @@ public class Rider {
 
     private final UUID id;
 
-    @NotBlank(message = "First name cannot be blank")
+    @NotBlank(message = "Rider\'s first name cannot be blank")
     private final String firstName;
 
-    @NotBlank(message = "Last name cannot be blank")
+    @NotBlank(message = "Rider\'s last name cannot be blank")
     private final String lastName;
 
     public Rider(@JsonProperty("id") UUID id,@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName) {

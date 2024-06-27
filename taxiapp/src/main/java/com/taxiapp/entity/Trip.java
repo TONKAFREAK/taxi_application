@@ -5,13 +5,20 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Trip {
     
     private final UUID id;
+    @NotBlank(message = "Driver cannot be blank")
     private final Driver driver;
+    @NotBlank(message = "Rider cannot be blank")
     private final Rider rider;
+    @NotBlank(message = "Start time cannot be blank")
     private final LocalDateTime starTime;
+    @NotBlank(message = "End time cannot be blank")
     private final LocalDateTime endTime;
+    @NotBlank(message = "Fare cannot be blank")
     private final double fare;
 
     public Trip(@JsonProperty("id") UUID id,
