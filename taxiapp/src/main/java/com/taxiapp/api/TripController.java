@@ -1,8 +1,11 @@
 package com.taxiapp.api;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,8 +33,13 @@ public class TripController {
     }
 
     @GetMapping("/{id}")
-    public Trip getTripById(@PathVariable UUID id) {
-        return tripService.getTripById(id).orElse(null);
+    public ResponseEntity<?> getTripById(@PathVariable UUID id) {
+        Optional<Trip> trip = tripService.getTripById(id);
+        if (trip.isPresent()) {
+            return new ResponseEntity<>(trip.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Trip not found",HttpStatus.NOT_FOUND);
+        }
     }
     
     

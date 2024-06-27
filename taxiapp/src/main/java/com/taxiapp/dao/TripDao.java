@@ -15,4 +15,5 @@ public interface TripDao {
     }
 
     Optional<Trip> getTripById(UUID id);
+
 }

@@ -36,4 +36,11 @@ public class DriverService {
 
     }
     
+    public int deleteDriverById(UUID id){
+        return driverDao.deleteDriverById(id);
+    }
+    
+    public int updateDriverById(UUID id, Driver driver){
+        return driverDao.updateDriverById(id, driver);
+    }
 }

@@ -32,5 +32,12 @@ public class RiderService {
     public Optional<Rider> getRiderById(UUID id) {
         return riderDao.getRiderById(id);
     }
+
+    public int deleteRiderById(UUID id) {
+        return riderDao.deleteRiderById(id);
+    }
     
+    public int updateRiderById(UUID id, Rider rider) {
+        return riderDao.updateRiderById(id, rider);
+    }
 }

@@ -18,5 +18,9 @@ public interface RiderDao {
     List<Rider> selectAllRiders();
 
     Optional<Rider> getRiderById(UUID id);
+
+    int deleteRiderById(UUID id);
+
+    int updateRiderById(UUID id, Rider rider);
     
 }

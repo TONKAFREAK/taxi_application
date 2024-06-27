@@ -1,12 +1,18 @@
 package com.taxiapp.api;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +34,7 @@ public class DriverController {
     }
 
     @PostMapping
-    public void addDriver(@RequestBody Driver driver){
+    public void addDriver(@NonNull @RequestBody Driver driver){
 
         driverService.addDriver(driver);
 
@@ -46,10 +52,23 @@ public class DriverController {
     }
 
     @GetMapping("/{id}")
-    public Driver getDriverById(@PathVariable UUID id){
-        return driverService.getDriverById(id).orElse(null);
+    public ResponseEntity<?> getDriverById(@PathVariable UUID id){
+        Optional<Driver> driver = driverService.getDriverById(id);
+        if (driver.isPresent()) {
+            return new ResponseEntity<>(driver.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Driver not found",HttpStatus.NOT_FOUND);
+        }
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteDriverById(@PathVariable UUID id){
+        driverService.deleteDriverById(id);
+    }
 
-    
+    @PutMapping("/{id}")
+    public void updateDriverById(@PathVariable UUID id, @NonNull @RequestBody Driver driver){
+        driverService.updateDriverById(id, driver);
+    }
+
 }

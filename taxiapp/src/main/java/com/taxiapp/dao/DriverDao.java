@@ -19,4 +19,8 @@ public interface DriverDao {
 
     Optional<Driver> getDriverById(UUID id);
 
+    int deleteDriverById(UUID id);
+
+    int updateDriverById(UUID id, Driver driver);
+
 }
