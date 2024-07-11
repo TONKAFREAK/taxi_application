@@ -1,0 +1,10 @@
+CREATE TABLE driver (
+    id UUID NOT NULL PRIMARY KEY,
+    firstName VARCHAR(100) NOT NULL,
+    lastName VARCHAR(100) NOT NULL,
+    carModel VARCHAR(100) NOT NULL,
+    carMake VARCHAR(100) NOT NULL,
+    carColor VARCHAR(100) NOT NULL,
+    carPlate VARCHAR(100) NOT NULL,
+    carYear INT NOT NULL
+);

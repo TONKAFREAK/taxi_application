@@ -1,0 +1,12 @@
+app : 
+    datasource:
+        jdbc-url: jdbc:postgresql://23.95.187.199:5432/taxidb
+        username: postgres
+        password: 
+        pool-size: 30 
+        hikari:
+            connection-timeout: 30000 
+            idle-timeout: 10000 
+            max-lifetime: 1800000 
+            minimum-idle: 5 
+            maximum-pool-size: 10 

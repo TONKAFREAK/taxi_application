@@ -1,0 +1,8 @@
+CREATE TABLE trip (
+    id UUID NOT NULL PRIMARY KEY,
+    driver_id UUID NOT NULL REFERENCES driver(id),
+    rider_id UUID NOT NULL REFERENCES rider(id),
+    startTime TIMESTAMP NOT NULL,
+    endTime TIMESTAMP NOT NULL,
+    fare DOUBLE PRECISION NOT NULL
+);
